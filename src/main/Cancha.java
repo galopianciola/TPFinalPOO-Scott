@@ -1,3 +1,5 @@
+package main;
+
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -44,7 +46,11 @@ public class Cancha extends Elemento{
         return precioTurno;
     }
 
-   // public List<Turno> getTurno();
+    public List<Turno> getTurnos(){
+        return this.turnos;
+    }
+
+   // public List<Principal.Turno> getTurno();
 
     public int getNroCancha(){
         return this.nroCancha;

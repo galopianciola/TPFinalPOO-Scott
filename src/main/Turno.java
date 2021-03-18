@@ -1,22 +1,21 @@
-import java.sql.Time;
+package main;
+
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Turno {
 
     private Persona titular;
-    private Date fecha;
-    private Time hora;
+    private Timestamp fecha_hora;
     private List<Persona> jugadores;
     private Encargado encargado;
     private boolean pagado;
 
-    public Turno (Persona titular,Date fecha,Time hora,Encargado encargado,boolean pagado){
+    public Turno (Persona titular,Timestamp fecha_hora,Encargado encargado,boolean pagado){
 
         this.titular=titular;
-        this.fecha=fecha;
-        this.hora=hora;
+        this.fecha_hora=fecha_hora;
         this.jugadores=new ArrayList<>();
         this.encargado=encargado;
         this.pagado=pagado;
@@ -41,5 +40,8 @@ public class Turno {
     public boolean isPagado() {
         return pagado;
     }
+
+    public Timestamp getFecha_hora() { return this.fecha_hora }
+
 }
 

@@ -1,3 +1,5 @@
+package main;
+
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,7 +22,7 @@ public class Area extends Elemento{
 
     @Override
     public Cancha getDisponibilidadEnHorario(Date fecha, Time hora) {
-        //usar el filtro FxDisponibilidad y por deporte para cada Elemento
+        //usar el filtro Filtros.FxDisponibilidad y por deporte para cada Principal.Elemento
         //y aca  devolver una lista
         return null;
     }
@@ -39,8 +41,8 @@ public class Area extends Elemento{
         return baños;
     }
 
-    public void setLista(Elemento e) {
-        this.lista.add(e);
+    public void addElemento(Elemento e) {
+        this.elementos.add(e);
     }
 
     public void setBaños(int baños) {

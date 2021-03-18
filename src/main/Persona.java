@@ -1,3 +1,5 @@
+package main;
+
 public class Persona {
 
     private String nombre;

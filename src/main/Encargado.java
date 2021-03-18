@@ -1,3 +1,5 @@
+package main;
+
 public class Encargado extends Persona{
 
     private Area area;
