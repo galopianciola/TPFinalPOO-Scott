@@ -1,4 +1,5 @@
 package Filtros;
+import main.*;
 
 public class FxNOT implements Filtro {
     private Filtro f;

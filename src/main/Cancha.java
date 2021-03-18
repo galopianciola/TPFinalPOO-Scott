@@ -46,7 +46,7 @@ public class Cancha extends Elemento{
         return precioTurno;
     }
 
-    public List<Turno> getTurnos(){
+    public List<Turno> getTurnos() {
         return this.turnos;
     }
 
@@ -88,9 +88,6 @@ public class Cancha extends Elemento{
         this.nroCancha = nroCancha;
     }
 
-    public List<Turno> getTurnos() {
-        return this.turnos;
-    }
 
 
 }

@@ -24,6 +24,5 @@ public class FxPrecio implements Filtro{
         else
             return c.getPrecioTurno()==this.precioRequerido;
 
-        return false;
     }
 }

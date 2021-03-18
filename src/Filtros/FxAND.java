@@ -1,4 +1,5 @@
 package Filtros;
+import main.*;
 
 public class FxAND implements Filtro {
     private Filtro f1;

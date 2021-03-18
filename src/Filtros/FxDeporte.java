@@ -1,4 +1,5 @@
 package Filtros;
+import main.*;
 
 public class FxDeporte implements Filtro{
 

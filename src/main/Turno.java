@@ -41,7 +41,7 @@ public class Turno {
         return pagado;
     }
 
-    public Timestamp getFecha_hora() { return this.fecha_hora }
+    public Timestamp getFechaHora() { return this.fecha_hora; }
 
 }
 

@@ -20,7 +20,7 @@ public class FxDisponibilidad implements Filtro{
         aux = c.getTurnos();
 
         for(Turno t : aux) {
-            if (aux.getFechaHora() == fecha_hora)
+            if (t.getFechaHora() == fecha_hora)
                 //ver bien si esta incluido el rango horario
                 disponible = false;
         }

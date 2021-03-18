@@ -12,17 +12,17 @@ public class FxCapacidad implements Filtro{
     }
 
     public FxCapacidad(int limiteSup,int limiteInf){
+        this.capacidadRequerida = -1;
         this.limiteInf=limiteInf;
         this.limiteSup=limiteSup;
     }
 
     @Override
     public boolean cumple(Cancha c){
-        if (this.capacidadRequerida == null)
+        if (this.capacidadRequerida == -1)
             return c.getCapacidad()>=limiteInf && c.getCapacidad()<=limiteSup;
         else
             return c.getCapacidad()==capacidadRequerida;
 
-        return false;
     }
 }
