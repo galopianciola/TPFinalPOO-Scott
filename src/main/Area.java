@@ -4,7 +4,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import Filtros.*;
 public class Area extends Elemento{
     private List<Elemento> elementos;
     private int baños;
@@ -25,10 +25,16 @@ public class Area extends Elemento{
     }
 
     @Override
-    public Cancha getDisponibilidadEnHorario(Date fecha, Time hora) {
-        //usar el filtro Filtros.FxDisponibilidad y por deporte para cada Principal.Elemento
-        //y aca  devolver una lista
+    public Cancha getCanchaDisponible(Date fecha, Time hora) {
         return null;
+    }
+
+    @Override
+    public List<Cancha> getCanchasXFiltro(Filtro f1){
+        List<Cancha> retorno = new ArrayList<>();
+        for(Elemento e:this.elementos)
+            retorno.addAll(e.getCanchasXFiltro(f1));
+        return retorno;
     }
 
     @Override
@@ -49,8 +55,8 @@ public class Area extends Elemento{
         if (cantElementosDisponibles == 0)
             return "Disponible en 0%";
         else
-            retorno = (cantElementosDisponibles/this.elementos.size())*100;
-            return "Disponible en " + retorno;
+            retorno = ( (double) cantElementosDisponibles/(double) this.elementos.size())*100;
+            return "Disponible en " + retorno+"%";
     }
 
     @Override

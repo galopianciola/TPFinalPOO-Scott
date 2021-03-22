@@ -4,7 +4,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import Filtros.*;
 public class Cancha extends Elemento{
 
     private List<Turno>turnos = new ArrayList<>();
@@ -15,8 +15,13 @@ public class Cancha extends Elemento{
     private double gastoMensual;
     private int nroCancha;
 
-    public Cancha(){
-
+    public Cancha(int capacidad, boolean ocupada, int precioTurno, boolean estado, double gastoMensual, int nroCancha) {
+        this.capacidad = capacidad;
+        this.ocupada = ocupada;
+        this.precioTurno = precioTurno;
+        this.estado = estado;
+        this.gastoMensual = gastoMensual;
+        this.nroCancha = nroCancha;
     }
 
     public int getCapacidad() {
@@ -36,6 +41,14 @@ public class Cancha extends Elemento{
     @Override
     public double getGastoMensual() {
         return this.gastoMensual;
+    }
+
+    @Override
+    public List<Cancha> getCanchasXFiltro(Filtro f1) {
+        List<Cancha> retorno = new ArrayList<>();
+        if (f1.cumple(this) == true)
+            retorno.add(this);
+        return retorno;
     }
 
     public boolean isOcupada() {
@@ -64,9 +77,6 @@ public class Cancha extends Elemento{
         this.capacidad = c;
     }
 
-    public void setTurnos(List<Turno> turnos) {
-        this.turnos = turnos;
-    }
 
     public void setOcupada(boolean ocupada) {
         this.ocupada = ocupada;
@@ -76,7 +86,7 @@ public class Cancha extends Elemento{
         this.precioTurno = precioTurno;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 
@@ -87,7 +97,5 @@ public class Cancha extends Elemento{
     public void setNroCancha(int nroCancha) {
         this.nroCancha = nroCancha;
     }
-
-
 
 }

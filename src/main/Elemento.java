@@ -1,7 +1,10 @@
 package main;
 
+import Filtros.Filtro;
+
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 public abstract class Elemento {
     private double dimension;
@@ -15,6 +18,7 @@ public abstract class Elemento {
     public abstract Cancha getCanchaDisponible(Date fecha, Time hora);
     public abstract boolean getEstado();
     public abstract double getGastoMensual();
+    public abstract List<Cancha> getCanchasXFiltro(Filtro f1);
 
     public void setDimension(double dimension) {
         this.dimension = dimension;
