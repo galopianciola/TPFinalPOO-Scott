@@ -7,11 +7,11 @@ import java.util.List;
 
 public class Cancha extends Elemento{
 
-    private List<Turno> turnos = new ArrayList<>();
+    private List<Turno>turnos = new ArrayList<>();
     private int capacidad;
     private boolean ocupada;
     private int precioTurno;
-    private String estado;
+    private boolean estado;
     private double gastoMensual;
     private int nroCancha;
 
@@ -20,7 +20,7 @@ public class Cancha extends Elemento{
     }
 
     public int getCapacidad() {
-        return capacidad;
+        return this.capacidad;
     }
 
     @Override
@@ -30,12 +30,12 @@ public class Cancha extends Elemento{
 
     @Override
     public boolean getEstado() {
-        return false;
+      return this.estado;
     }
 
     @Override
     public double getGastoMensual() {
-        return 0;
+        return this.gastoMensual;
     }
 
     public boolean isOcupada() {

@@ -17,7 +17,11 @@ public class Area extends Elemento{
 
     @Override
     public int getCapacidad() {
-        return 0;
+        int retorno=0;
+        for(Elemento e:this.elementos)
+            retorno=retorno+e.getCapacidad();
+
+        return retorno;
     }
 
     @Override
@@ -28,13 +32,34 @@ public class Area extends Elemento{
     }
 
     @Override
-    public boolean getEstado() {
-        return false;
+    public boolean getEstado() { //se fija si el area esta disponible(con que haya 1 cancha disponible alcanza)
+        boolean retorno=false;
+        for(Elemento e:this.elementos)
+            if(e.getEstado()==true)
+                retorno=true;
+        return retorno;
+    }
+
+    public String getPorcentajeElementosDisponibles(){ //devuelve el porcentaje de elementos disponibles
+        int cantElementosDisponibles=0;
+        double retorno=0;
+        for(Elemento e:this.elementos)
+            if (e.getEstado()==true)
+                cantElementosDisponibles++;
+        if (cantElementosDisponibles == 0)
+            return "Disponible en 0%";
+        else
+            retorno = (cantElementosDisponibles/this.elementos.size())*100;
+            return "Disponible en " + retorno;
     }
 
     @Override
     public double getGastoMensual() {
-        return 0;
+        double retorno = 0;
+        for(Elemento e:this.elementos)
+            retorno=retorno + e.getGastoMensual();
+        return retorno;
+
     }
 
     public int getBaños() {
