@@ -21,7 +21,7 @@ public class ResumenForm extends javax.swing.JFrame {
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        Aux a1 = new Aux();
+        Auxiliar a1 = new Auxiliar();
         this.setLocation(a1.getLocationX(this.getWidth()), a1.getLocationY(this.getHeight()));
     }
 
