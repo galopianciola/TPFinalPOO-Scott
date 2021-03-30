@@ -32,5 +32,3 @@ import java.awt.Toolkit;
             return (this.screenSize.height - height) / 2;
         }
     }
-
-}
