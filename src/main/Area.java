@@ -37,6 +37,27 @@ public class Area extends Elemento{
         return retorno;
     }
 
+    public String getPorcentajeCanchasDisponibles(Filtro f1){
+        double retorno = 0;
+        List<Cancha> aux = new ArrayList<>();
+        aux = this.getCanchasXFiltro(f1);
+        int canchasDisponibles = 0;
+        canchasDisponibles = aux.size();
+        int canchasTotales = 0;
+        canchasTotales = this.getCantElementosDisponibles();
+
+        retorno = ( (double) canchasTotales/(double) canchasDisponibles;
+        return "Disponible en " + retorno+"%";
+
+    }
+    @Override
+    public int getCantElementosDisponibles(){
+        int retorno = 0;
+        for(Elemento e:this.elementos)
+            retorno = retorno + e.getCantElementosDisponibles();
+        return retorno;
+    }
+
     @Override
     public boolean getEstado() { //se fija si el area esta disponible(con que haya 1 cancha disponible alcanza)
         boolean retorno=false;

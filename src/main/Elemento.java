@@ -19,8 +19,9 @@ public abstract class Elemento {
     public abstract boolean getEstado();
     public abstract double getGastoMensual();
     public abstract List<Cancha> getCanchasXFiltro(Filtro f1);
+    public abstract int getCantElementosDisponibles();
 
-    public void setDimension(double dimension) {
+        public void setDimension(double dimension) {
         this.dimension = dimension;
    }
 

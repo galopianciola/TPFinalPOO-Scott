@@ -98,4 +98,13 @@ public class Cancha extends Elemento{
         this.nroCancha = nroCancha;
     }
 
+    @Override
+    public int getCantElementosDisponibles(){
+        if (this.estado = true)
+            return 1;
+        else
+            return 0;
+    }
+
+
 }
