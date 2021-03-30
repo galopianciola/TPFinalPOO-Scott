@@ -9,15 +9,13 @@ public class Cancha extends Elemento{
 
     private List<Turno>turnos = new ArrayList<>();
     private int capacidad;
-    private boolean ocupada;
     private int precioTurno;
     private boolean estado;
     private double gastoMensual;
     private int nroCancha;
 
-    public Cancha(int capacidad, boolean ocupada, int precioTurno, boolean estado, double gastoMensual, int nroCancha) {
+    public Cancha(int capacidad, int precioTurno, boolean estado, double gastoMensual, int nroCancha) {
         this.capacidad = capacidad;
-        this.ocupada = ocupada;
         this.precioTurno = precioTurno;
         this.estado = estado;
         this.gastoMensual = gastoMensual;
@@ -51,10 +49,6 @@ public class Cancha extends Elemento{
         return retorno;
     }
 
-    public boolean isOcupada() {
-        return ocupada;
-    }
-
     public int getPrecioTurno() {
         return precioTurno;
     }
@@ -77,10 +71,6 @@ public class Cancha extends Elemento{
         this.capacidad = c;
     }
 
-
-    public void setOcupada(boolean ocupada) {
-        this.ocupada = ocupada;
-    }
 
     public void setPrecioTurno(int precioTurno) {
         this.precioTurno = precioTurno;

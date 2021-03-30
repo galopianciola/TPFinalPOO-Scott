@@ -9,8 +9,8 @@ public class FxDisponibilidad implements Filtro{
 
     private Timestamp fecha_hora;
 
-    public FxDisponibilidad(Timestamp fecha){
-        this.fecha_hora=fecha;
+    public FxDisponibilidad(Timestamp fecha_hora){
+        this.fecha_hora=fecha_hora;
     }
 
     @Override

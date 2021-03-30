@@ -46,8 +46,8 @@ public class Area extends Elemento{
         int canchasTotales = 0;
         canchasTotales = this.getCantElementosDisponibles();
 
-        retorno = ( (double) canchasTotales/(double) canchasDisponibles;
-        return "Disponible en " + retorno+"%";
+        retorno = ((double) canchasDisponibles/(double) canchasTotales) * 100;
+        return canchasDisponibles + "/" + canchasTotales + " (" + retorno +"%)";
 
     }
     @Override
@@ -67,17 +67,19 @@ public class Area extends Elemento{
         return retorno;
     }
 
-    public String getPorcentajeElementosDisponibles(){ //devuelve el porcentaje de elementos disponibles
-        int cantElementosDisponibles=0;
+    public String getPorcentajeCanchasMantenimiento(){ //devuelve el porcentaje de elementos en mantenimiento
+        int cantElementosMantenimiento=0;
         double retorno=0;
         for(Elemento e:this.elementos)
-            if (e.getEstado()==true)
-                cantElementosDisponibles++;
-        if (cantElementosDisponibles == 0)
-            return "Disponible en 0%";
+            if (e.getEstado()==false)
+                cantElementosMantenimiento++;
+        if (cantElementosMantenimiento == 0)
+            return cantElementosMantenimiento + "/" + this.elementos.size() + " (" + retorno + "%)";
         else
-            retorno = ( (double) cantElementosDisponibles/(double) this.elementos.size())*100;
-            return "Disponible en " + retorno+"%";
+            retorno = ( (double) cantElementosMantenimiento/(double) this.elementos.size())*100;
+        
+        return cantElementosMantenimiento + "/" + this.elementos.size() + " (" + retorno + "%)";
+       
     }
 
     @Override

@@ -6,15 +6,13 @@ import java.sql.Timestamp;
 public class Main {
     public static void main(String[] args) {
         Area a1 = new Area(2);
-        Cancha c1 = new Cancha(10,false,200,true,3000,1);
-        Cancha c2 = new Cancha(21,false,200,true,3000,2);
-        Cancha c3 = new Cancha(10,false,200,false,3000,3);
+        Cancha c1 = new Cancha(10,200,true,3000,1);
+        Cancha c2 = new Cancha(21,200,true,3000,2);
+        Cancha c3 = new Cancha(10,200,false,3000,3);
 
         a1.addElemento(c1);
         a1.addElemento(c2);
         a1.addElemento(c3);
-
-        System.out.println(a1.getPorcentajeElementosDisponibles());
 
         /*Filtro f1 = new FxCapacidad(10);
         for(Cancha c:a1.getCanchasXFiltro(f1))

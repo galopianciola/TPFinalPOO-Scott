@@ -1,5 +1,9 @@
 
 import javax.swing.JFrame;
+import main.*;
+import Filtros.*;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,7 +28,27 @@ public class ResumenForm extends javax.swing.JFrame {
         Auxiliar a1 = new Auxiliar();
         this.setLocation(a1.getLocationX(this.getWidth()), a1.getLocationY(this.getHeight()));
         
-        jLabel2.setText("Canchas ocupadas: 87");
+        Area area1 = new Area(3);
+        Cancha c1 = new Cancha(10,1500, true, 2000,4);
+        Cancha c2 = new Cancha(1,500, true, 3000, 1);
+        
+        // Busco la fecha y hora de hoy para ver qué canchas están disponibles en este momento
+        Date date = new Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
+        
+        Persona p1 = new Persona("Julian","Wagner",41537503,"urquiza",228422);
+        Encargado e1 = new Encargado("xd","xdxd",423332,"rasdsa",222233,area1,22);
+        Turno t1 = new Turno(p1,timestamp,e1,true);
+        
+        c2.setTurno(t1);
+        
+        Filtro f1 = new FxDisponibilidad(timestamp);
+        
+        area1.addElemento(c1);
+        area1.addElemento(c2);
+        
+        jLabel2.setText("Disponibilidad actual: " + area1.getPorcentajeCanchasDisponibles(f1));
+        jLabel3.setText("Canchas en mantenimiento: " + area1.getPorcentajeCanchasMantenimiento());
     }
 
     /**
@@ -40,6 +64,7 @@ public class ResumenForm extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +73,8 @@ public class ResumenForm extends javax.swing.JFrame {
 
         jLabel2.setText("Canchas ocupadas: blabla");
 
+        jLabel3.setText("Canchas en mantenimiento: 2/60 (10%)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -55,11 +82,13 @@ public class ResumenForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
-                        .addComponent(jSeparator1)))
+                        .addComponent(jSeparator1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
@@ -71,7 +100,9 @@ public class ResumenForm extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 333, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -118,6 +149,7 @@ public class ResumenForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
